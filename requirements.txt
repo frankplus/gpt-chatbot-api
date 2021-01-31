@@ -1,5 +1,6 @@
 flask
 numpy
-tensorflow==1.15
+tensorflow==1.14.0
 regex
 env
+wheel
