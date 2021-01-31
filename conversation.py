@@ -41,9 +41,9 @@ class Conversation:
 
     def get_answer(self):
         prompt = self.text_gpt() + "{}: \"".format(self.name_computer)
-        print("INPUT " + "="*30)
-        print(prompt)
-        print("INPUT " + "="*30)
+        # print("INPUT " + "="*30)
+        # print(prompt)
+        # print("INPUT " + "="*30)
         text = self.gpt.generate_conditional(prompt)
         reply = (text.strip().split('\n'))[0]
         if reply[-1] == "\"":
