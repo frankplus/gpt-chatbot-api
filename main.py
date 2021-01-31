@@ -39,8 +39,10 @@ def getreply():
 
     text = request.args.get('input')
     if text:
+        print(f"Input: {text}")
         conversation.add_human(text)
     answer = conversation.get_answer()
+    print(f"Answer: {answer}")
     conversation.add_computer(answer)
 
     return {
