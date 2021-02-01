@@ -12,16 +12,16 @@ class Conversation:
         self.name_computer = name_computer
         self.conversation = deque()
 
-        self.add_human("Nice to meet you. What's your name?")
-        self.add_computer("My name is Pete.")
-        self.add_human("That's an interesting name. How old are you?")
-        self.add_computer("I'm 40 years old.")
-        self.add_human("Can you tell me something about yourself?")
-        self.add_computer("Ofcourse! I like playing video games and eating cake.")
+        # self.add_human("Nice to meet you. What's your name?")
+        # self.add_computer("My name is Pete.")
+        # self.add_human("That's an interesting name. How old are you?")
+        # self.add_computer("I'm 40 years old.")
+        # self.add_human("Can you tell me something about yourself?")
+        # self.add_computer("Ofcourse! I like playing video games and eating cake.")
 
     def add(self, name, text):
         self.conversation.append("{}: \"{}\"".format(name, text))
-        if len(self.conversation) > 6:
+        if len(self.conversation) > 4:
             self.conversation.popleft()
 
     def add_computer(self, text):
@@ -41,10 +41,10 @@ class Conversation:
 
     def get_answer(self):
         prompt = self.text_gpt() + "{}: \"".format(self.name_computer)
-        # print("INPUT " + "="*30)
-        # print(prompt)
-        # print("INPUT " + "="*30)
-        text = self.gpt.generate_conditional(prompt)
+        print("INPUT " + "="*30)
+        print(prompt)
+        print("INPUT " + "="*30)
+        text = self.gpt.generate_text(prompt)
         reply = (text.strip().split('\n'))[0]
         if reply[-1] == "\"":
             reply = reply[:-1]

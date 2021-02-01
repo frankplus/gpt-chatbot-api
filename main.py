@@ -1,5 +1,5 @@
 from flask import Flask, request
-import gpt2
+from GePpeTto import GePpeTto
 from conversation import Conversation
 import secrets, string
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 enabled_api_keys = ["f24eded9-fcd1-4392-b214-01bad08fa69f"]
 
-gpt = gpt2.GPT2(model_name="117M")
+gpt = GePpeTto()
 contexts = dict()
 
 def get_instance(id):

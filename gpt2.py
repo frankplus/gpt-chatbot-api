@@ -77,7 +77,7 @@ class GPT2:
     def close(self):
         self.sess.close()
 
-    def generate_conditional(self,raw_text):
+    def generate_text(self,raw_text):
         context_tokens = self.enc.encode(raw_text)
         generated = 0
         text = ""
